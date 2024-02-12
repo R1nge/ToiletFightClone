@@ -6,6 +6,7 @@ namespace _Assets.Scripts.Gameplay
 {
     public class CharacterMovement : MonoBehaviour
     {
+        [SerializeField] private float stoppingDistance;
         private NavMeshAgent _agent;
 
         private void Awake()
@@ -13,6 +14,7 @@ namespace _Assets.Scripts.Gameplay
             //For some reason, it doesn't work if attached to prefab
             //And I don't have time to find out why
             _agent = gameObject.AddComponent<NavMeshAgent>();
+            _agent.stoppingDistance = stoppingDistance;
         }
 
         public void SetDestination(Vector3 destination)

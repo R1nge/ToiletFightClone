@@ -12,4 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f68d3059ada4205a070aedc4c97dbc3, type: 3}
   m_Name: Enemies Config
   m_EditorClassIdentifier: 
-  enemies: []
+  _enemyDatas:
+  - enemyType: 0
+    enemyPrefab: {fileID: 7751273462577546338, guid: d399b68aa5cb4c04f9b45c871cc7aff4, type: 3}
+  - enemyType: 1
+    enemyPrefab: {fileID: 1504122476509645983, guid: 93a7da9c67b828540a44376d31c70012, type: 3}
+  - enemyType: 2
+    enemyPrefab: {fileID: 3721261522235570703, guid: 7aca7090afa0bec4d966538320faddbc, type: 3}
+  - enemyType: 3
+    enemyPrefab: {fileID: 7881005726371788403, guid: c4ee4a40e5e47be4d9d4d04a4f7bfa8a, type: 3}
+  - enemyType: 4
+    enemyPrefab: {fileID: 5482897983685202023, guid: 5ecedae40f533f2438bf8d6d65accfba, type: 3}
+  - enemyType: 5
+    enemyPrefab: {fileID: 3381777712402686242, guid: 059483e33acc606468be8cd07a89832b, type: 3}
+  - enemyType: 6
+    enemyPrefab: {fileID: 7170625910832860552, guid: 9da6d11f2d2be7849a1939c7368ebeb0, type: 3}

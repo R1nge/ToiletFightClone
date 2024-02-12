@@ -5,17 +5,16 @@ namespace _Assets.Scripts.Services.StateMachine
 {
     public class GameStateMachine
     {
-        private readonly Dictionary<GameStateType, IGameState> _states;
+        private readonly IStateFactory _statesFactory;
+        private readonly Dictionary<GameStateType, IGameState> _states = new();
         private IGameState _currentGameState;
         private GameStateType _currentGameStateType;
 
-        public GameStateMachine(GameStatesFactory gameStatesFactory)
+        public GameStateMachine(IStateFactory statesFactory) => _statesFactory = statesFactory;
+
+        public void AddState(GameStateType gameStateType)
         {
-            _states = new Dictionary<GameStateType, IGameState>
-            {
-                { GameStateType.Main, gameStatesFactory.CreateMainState(this) },
-                { GameStateType.Game, gameStatesFactory.CreateGameState(this) }
-            };
+            _states.TryAdd(gameStateType, _statesFactory.CreateState(this));
         }
 
         public void SwitchState(GameStateType gameStateType)

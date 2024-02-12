@@ -8,6 +8,10 @@ namespace _Assets.Scripts.Misc
     {
         [Inject] private GameStateMachine _gameStateMachine;
 
-        private void Start() => _gameStateMachine.SwitchState(GameStateType.Main);
+        private void Start()
+        {
+            _gameStateMachine.AddState(GameStateType.Main);
+            _gameStateMachine.SwitchState(GameStateType.Main);
+        }
     }
 }

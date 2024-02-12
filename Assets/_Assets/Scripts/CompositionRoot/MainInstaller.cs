@@ -1,4 +1,4 @@
-using _Assets.Scripts.Services.Factories;
+﻿using _Assets.Scripts.Services.Factories;
 using _Assets.Scripts.Services.Spawners;
 using _Assets.Scripts.Services.StateMachine;
 using _Assets.Scripts.Services.UIs;
@@ -9,24 +9,20 @@ using VContainer.Unity;
 
 namespace _Assets.Scripts.CompositionRoot
 {
-    public class GameInstaller : LifetimeScope
+    public class MainInstaller : LifetimeScope
     {
         [SerializeField] private PlayerSpawner playerSpawner;
-        [SerializeField] private EnemySpawner enemySpawner;
 
         protected override void Configure(IContainerBuilder builder)
         {
             builder.Register<PlayerFactory>(Lifetime.Singleton);
-            builder.Register<EnemyFactory>(Lifetime.Singleton);
-            
             builder.RegisterComponent(playerSpawner);
-            builder.RegisterComponent(enemySpawner);
-            
+
             builder.Register<UIStatesFactory>(Lifetime.Singleton);
             builder.Register<UIStateMachine>(Lifetime.Singleton);
             builder.Register<UIFactory>(Lifetime.Singleton);
             
-            builder.Register<GameStatesFactory>(Lifetime.Singleton).As<IStateFactory>();
+            builder.Register<MainStatesFactory>(Lifetime.Singleton).As<IStateFactory>();
             builder.Register<GameStateMachine>(Lifetime.Singleton);
         }
     }

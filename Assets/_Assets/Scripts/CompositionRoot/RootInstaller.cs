@@ -1,4 +1,8 @@
 using _Assets.Scripts.Configs;
+using _Assets.Scripts.Services;
+using _Assets.Scripts.Services.Levels;
+using _Assets.Scripts.Services.Skins;
+using _Assets.Scripts.Services.Wallets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VContainer;
@@ -13,6 +17,14 @@ namespace _Assets.Scripts.CompositionRoot
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterComponent(configProvider);
+            
+            builder.Register<GameLevelsService>(Lifetime.Singleton);
+            builder.Register<GameSceneService>(Lifetime.Singleton);
+            
+            builder.Register<Wallet>(Lifetime.Singleton);
+            builder.Register<PlayerUpgradeService>(Lifetime.Singleton);
+
+            builder.Register<PlayerSkinService>(Lifetime.Singleton);
 
             if (SceneManager.GetActiveScene().name != "Boot")
             {

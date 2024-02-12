@@ -5,27 +5,24 @@ using _Assets.Scripts.Services.UIs.StateMachine;
 
 namespace _Assets.Scripts.Services.StateMachine
 {
-    public class GameStatesFactory
+    public class GameStatesFactory : IStateFactory
     {
         private readonly UIStateMachine _uiStateMachine;
         private readonly PlayerFactory _playerFactory;
         private readonly PlayerSpawner _playerSpawner;
+        private readonly EnemySpawner _enemySpawner;
 
-        private GameStatesFactory(UIStateMachine uiStateMachine, PlayerFactory playerFactory, PlayerSpawner playerSpawner)
+        private GameStatesFactory(UIStateMachine uiStateMachine, PlayerFactory playerFactory, PlayerSpawner playerSpawner, EnemySpawner enemySpawner)
         {
             _uiStateMachine = uiStateMachine;
             _playerFactory = playerFactory;
             _playerSpawner = playerSpawner;
+            _enemySpawner = enemySpawner;
         }
 
-        public IGameState CreateMainState(GameStateMachine stateMachine)
+        public IGameState CreateState(GameStateMachine gameStateMachine)
         {
-            return new MainState(stateMachine, _uiStateMachine, _playerSpawner);
-        }
-
-        public IGameState CreateGameState(GameStateMachine gameStateMachine)
-        {
-            return new GameState(gameStateMachine, _uiStateMachine, _playerSpawner);
+            return new GameState(gameStateMachine, _uiStateMachine, _playerSpawner, _enemySpawner);
         }
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8304366444469896982}
   - component: {fileID: 7713444256785749341}
-  - component: {fileID: 4024468410440143804}
+  - component: {fileID: 3544814429744182485}
   m_Layer: 0
   m_Name: RootInstaller
   m_TagString: Untagged
@@ -49,8 +49,8 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
-  configProvider: {fileID: 4024468410440143804}
---- !u!114 &4024468410440143804
+  configProvider: {fileID: 3544814429744182485}
+--- !u!114 &3544814429744182485
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

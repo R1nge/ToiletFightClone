@@ -63,3 +63,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiConfig: {fileID: 11400000, guid: c01c0ec4a5855f641b051cf97763b193, type: 2}
+  skinsConfig: {fileID: 11400000, guid: 1abb1be55a62b7d418b7b1ee6d9241a6, type: 2}

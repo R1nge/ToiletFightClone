@@ -1,4 +1,5 @@
 using _Assets.Scripts.Services;
+using _Assets.Scripts.Services.Factories;
 using _Assets.Scripts.Services.StateMachine;
 using _Assets.Scripts.Services.UIs;
 using _Assets.Scripts.Services.UIs.StateMachine;
@@ -14,6 +15,8 @@ namespace _Assets.Scripts.CompositionRoot
         {
             builder.Register<Wallet>(Lifetime.Singleton);
             builder.Register<PlayerUpgradeService>(Lifetime.Singleton);
+
+            builder.Register<PlayerFactory>(Lifetime.Singleton);
             
             builder.Register<UIStatesFactory>(Lifetime.Singleton);
             builder.Register<UIStateMachine>(Lifetime.Singleton);

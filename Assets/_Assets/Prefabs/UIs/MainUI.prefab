@@ -1266,6 +1266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82fe529b55c643f3a443a51fed538f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buyButton: {fileID: 6838623335654698503}
   levelText: {fileID: 3369936816594114099}
   amountText: {fileID: 9057109393032929371}
   costText: {fileID: 1617801548960224846}
@@ -2241,6 +2242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82fe529b55c643f3a443a51fed538f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buyButton: {fileID: 5277408549989054480}
   levelText: {fileID: 2046278794610867042}
   amountText: {fileID: 1411528622974409996}
   costText: {fileID: 6391989461306453440}

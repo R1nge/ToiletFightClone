@@ -9,6 +9,10 @@ namespace _Assets.Scripts.Services
 
         private GameSceneService(GameLevelsService gameLevelsService) => _gameLevelsService = gameLevelsService;
 
-        public void LoadLastGameLevel() => SceneManager.LoadSceneAsync(_gameLevelsService.GetLastLevelName(), LoadSceneMode.Single);
+        public void LoadLastGameLevel()
+        {
+            //TODO: show/hide loading curtain
+            SceneManager.LoadSceneAsync(_gameLevelsService.GetLastLevelName(), LoadSceneMode.Single);
+        }
     }
 }

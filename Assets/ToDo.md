@@ -1,8 +1,7 @@
 ﻿Game
 Init (Select language, Save/load data)
-Main (tap to play the last level)
-Levels are separate scenes
 
+Levels are separate scenes
 On death (restart/main menu)
 
 
@@ -20,8 +19,6 @@ Attack with an interval (random?)
 UI
 Loading screen
 Main (
-start game
-wallet,
 upgrades,
 shop,
 agents
@@ -29,3 +26,9 @@ agents
 
 Done:
 Wallet
+Main (tap to play the last level)
+
+Main (
+start game,
+wallet
+)

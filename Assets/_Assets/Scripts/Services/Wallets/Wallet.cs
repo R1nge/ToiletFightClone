@@ -16,8 +16,8 @@ namespace _Assets.Scripts.Services.Wallets
                 return;
             }
 
-            walletData.Money += amount;
-            OnMoneyChanged?.Invoke(walletData.Money);
+            walletData.money += amount;
+            OnMoneyChanged?.Invoke(walletData.money);
         }
 
         public bool Spend(int amount)
@@ -28,25 +28,25 @@ namespace _Assets.Scripts.Services.Wallets
                 return false;
             }
 
-            if (amount > walletData.Money)
+            if (amount > walletData.money)
             {
                 Debug.LogError($"Not enough money to spend {amount} money");
                 return false;
             }
             
-            walletData.Money -= amount;
-            OnMoneyChanged?.Invoke(walletData.Money);
+            walletData.money -= amount;
+            OnMoneyChanged?.Invoke(walletData.money);
             return true;
         }
         
         [Serializable]
         public struct WalletData
         {
-            public int Money;
+            public int money;
 
             public WalletData(int money)
             {
-                Money = money;
+                this.money = money;
             }
         }
     }

@@ -13,7 +13,7 @@ namespace _Assets.Scripts.Services.UIs.Controllers
         private void Start()
         {
             _wallet.OnMoneyChanged += UpdateWalletUI;
-            UpdateWalletUI(_wallet.walletData.Money);
+            UpdateWalletUI(_wallet.walletData.money);
         }
 
         private void UpdateWalletUI(int money) => view.UpdateWallet(money);

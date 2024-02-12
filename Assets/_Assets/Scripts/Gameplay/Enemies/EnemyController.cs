@@ -1,44 +1,54 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 
 namespace _Assets.Scripts.Gameplay.Enemies
 {
+    [RequireComponent(typeof(EnemyAttackController), typeof(CharacterMovement))]
     public class EnemyController : MonoBehaviour
     {
-        [SerializeField] private float attackDelay;
-        private bool _canAttack = true;
-        private YieldInstruction _cooldown;
+        [SerializeField] private EnemyData data;
         private Transform _player;
+        private EnemyAttackController _enemyAttackController;
+        private CharacterMovement _characterMovement;
+
+        private void Awake()
+        {
+            _enemyAttackController = GetComponent<EnemyAttackController>();
+            _characterMovement = GetComponent<CharacterMovement>();
+        }
 
         public void SetPlayerReference(Transform player)
         {
             _player = player;
         }
 
-        private void Start()
-        {
-            _cooldown = new WaitForSeconds(attackDelay);
-        }
-
         private void Update()
         {
-            Attack();
-        }
-
-        private void Attack()
-        {
-            if (_canAttack)
+            if (PlayerInDetectRange())
             {
-                StartCoroutine(Cooldown_C());
+                _characterMovement.SetDestination(_player.position);
+            }
+            else if (PlayerInAttackRange())
+            {
+                _enemyAttackController.Attack();
             }
         }
 
-        private IEnumerator Cooldown_C()
+        private bool PlayerInDetectRange()
         {
-            _canAttack = false;
-            yield return _cooldown;
-            _canAttack = true;
+            return Vector3.Distance(transform.position, _player.position) <= data.detectRange;
+        }
+
+        private bool PlayerInAttackRange()
+        {
+            return Vector3.Distance(transform.position, _player.position) <= data.attackRange;
+        }
+
+        [Serializable]
+        public struct EnemyData
+        {
+            public float detectRange;
+            public float attackRange;
         }
     }
 }

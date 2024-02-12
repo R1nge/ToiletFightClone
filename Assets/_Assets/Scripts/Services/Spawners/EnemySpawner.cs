@@ -25,6 +25,7 @@ namespace _Assets.Scripts.Services.Spawners
             for (int i = 0; i < waves[_waveIndex].amount; i++)
             {
                 var enemy = _enemyFactory.Create(player, waves[_waveIndex].enemyType);
+                enemy.transform.position = waves[_waveIndex].spawnPoint.position;
             }
         }
 

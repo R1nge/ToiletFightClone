@@ -362,6 +362,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1291007978257570427}
   - component: {fileID: 7956993408886024976}
+  - component: {fileID: 5918206239332401713}
+  - component: {fileID: 4215425852403875844}
   m_Layer: 0
   m_Name: ToiletMike
   m_TagString: Untagged
@@ -398,7 +400,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfab10c1ab44068b4a23f78b1283789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDelay: 0
+  data:
+    detectRange: 100
+    attackRange: 2
+--- !u!114 &5918206239332401713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5482897983685202023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8cee7e09ec48bd922b1e34459ff3a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDelay: 2
+--- !u!114 &4215425852403875844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5482897983685202023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7367a11ac0ee40588da2673cee3ca335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5677911604206998304
 GameObject:
   m_ObjectHideFlags: 0

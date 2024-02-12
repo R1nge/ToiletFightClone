@@ -268,6 +268,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7342073066073005119}
   - component: {fileID: 8702833507752990009}
+  - component: {fileID: 3483754708332636790}
+  - component: {fileID: 4870047763682717817}
   m_Layer: 0
   m_Name: ToiletEric
   m_TagString: Untagged
@@ -304,7 +306,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfab10c1ab44068b4a23f78b1283789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDelay: 0
+  data:
+    detectRange: 100
+    attackRange: 2
+--- !u!114 &3483754708332636790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721261522235570703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8cee7e09ec48bd922b1e34459ff3a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDelay: 2
+--- !u!114 &4870047763682717817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3721261522235570703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7367a11ac0ee40588da2673cee3ca335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5461780102922268112
 GameObject:
   m_ObjectHideFlags: 0

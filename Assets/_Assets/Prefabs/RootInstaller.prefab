@@ -64,3 +64,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiConfig: {fileID: 11400000, guid: c01c0ec4a5855f641b051cf97763b193, type: 2}
   skinsConfig: {fileID: 11400000, guid: 1abb1be55a62b7d418b7b1ee6d9241a6, type: 2}
+  enemiesConfig: {fileID: 11400000, guid: 3b93099544afae54893b79452800e11e, type: 2}
+  levelsConfig: {fileID: 11400000, guid: da2e17ed22116a140913d9bf82ad31a3, type: 2}

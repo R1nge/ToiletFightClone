@@ -10,7 +10,6 @@ namespace _Assets.Scripts.Services.Factories
         private readonly IObjectResolver _objectResolver;
         private readonly PlayerSkinService _playerSkinService;
 
-
         private PlayerFactory(IObjectResolver objectResolver, PlayerSkinService playerSkinService)
         {
             _objectResolver = objectResolver;

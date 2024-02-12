@@ -116,6 +116,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Idle
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 20836423db8e6c64ea1a94e68bd27b8c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b018ff0e885322a4cb1e85b3c004dfbe, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

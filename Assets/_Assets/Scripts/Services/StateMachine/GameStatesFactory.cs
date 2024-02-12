@@ -17,10 +17,15 @@ namespace _Assets.Scripts.Services.StateMachine
             _playerFactory = playerFactory;
             _playerSpawner = playerSpawner;
         }
-        
-        public IGameState CreateGameState(GameStateMachine stateMachine)
+
+        public IGameState CreateMainState(GameStateMachine stateMachine)
         {
-            return new GameState(stateMachine, _uiStateMachine, _playerSpawner);
+            return new MainState(stateMachine, _uiStateMachine, _playerSpawner);
+        }
+
+        public IGameState CreateGameState(GameStateMachine gameStateMachine)
+        {
+            return new GameState(gameStateMachine, _uiStateMachine, _playerSpawner);
         }
     }
 }

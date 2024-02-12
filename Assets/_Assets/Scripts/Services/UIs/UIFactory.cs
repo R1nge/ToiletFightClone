@@ -16,6 +16,8 @@ namespace _Assets.Scripts.Services.UIs
             _configProvider = configProvider;
         }
         
-        public GameObject CreateGameUI() => _objectResolver.Instantiate(_configProvider.UIConfig.gameUI);
+        public GameObject CreateMainUI() => _objectResolver.Instantiate(_configProvider.UIConfig.MainUI);
+
+        public GameObject CreateGameUI() => _objectResolver.Instantiate(_configProvider.UIConfig.GameUI);
     }
 }

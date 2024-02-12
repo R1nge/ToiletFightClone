@@ -13,6 +13,7 @@ namespace _Assets.Scripts.Services.StateMachine
         {
             _states = new Dictionary<GameStateType, IGameState>
             {
+                { GameStateType.Main, gameStatesFactory.CreateMainState(this) },
                 { GameStateType.Game, gameStatesFactory.CreateGameState(this) }
             };
         }
@@ -24,7 +25,7 @@ namespace _Assets.Scripts.Services.StateMachine
                 Debug.LogError($"Trying to switch to the same state {gameStateType}");
                 return;
             }
-            
+
             _currentGameState?.Exit();
             _currentGameState = _states[gameStateType];
             _currentGameStateType = gameStateType;

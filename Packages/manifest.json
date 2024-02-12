@@ -4,6 +4,7 @@
     "com.codewriter.morpeh.systemstateprocessor": "https://github.com/codewriter-packages/Morpeh.SystemStateProcessor.git",
     "com.codewriter.triinspector": "https://github.com/codewriter-packages/Tri-Inspector.git",
     "com.scellecs.morpeh": "https://github.com/scellecs/morpeh.git#2023.1.0",
+    "com.unity.ai.navigation": "1.1.5",
     "com.unity.collab-proxy": "2.2.0",
     "com.unity.feature.development": "1.0.1",
     "com.unity.textmeshpro": "3.0.6",

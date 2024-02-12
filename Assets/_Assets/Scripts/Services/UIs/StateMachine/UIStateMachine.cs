@@ -13,6 +13,7 @@ namespace _Assets.Scripts.Services.UIs.StateMachine
         {
             _states = new Dictionary<UIStateType, IUIState>
             {
+                { UIStateType.Main, uiStatesFactory.CreateMainState(this) },
                 { UIStateType.Game, uiStatesFactory.CreateGameState(this) }
             };
         }
@@ -24,7 +25,7 @@ namespace _Assets.Scripts.Services.UIs.StateMachine
                 Debug.LogError($"Trying to switch to the same state {uiStateType}");
                 return;
             }
-            
+
             _currentGameState?.Exit();
             _currentGameState = _states[uiStateType];
             _currentUIStateType = uiStateType;

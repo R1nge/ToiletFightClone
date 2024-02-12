@@ -11,6 +11,11 @@ namespace _Assets.Scripts.Services.UIs.StateMachine
             _uiFactory = uiFactory;
         }
         
+        public IUIState CreateMainState(UIStateMachine uiStateMachine)
+        {
+            return new UIMainState(_uiFactory);
+        }
+
         public IUIState CreateGameState(UIStateMachine uiStateMachine)
         {
             return new UIGameState(_uiFactory);

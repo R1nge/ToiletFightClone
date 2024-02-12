@@ -3,6 +3,7 @@
     public enum GameStateType : byte
     {
         None = 0,
-        Game = 1
+        Main = 1,
+        Game = 2
     }
 }

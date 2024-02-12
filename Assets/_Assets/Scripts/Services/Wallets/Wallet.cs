@@ -5,7 +5,7 @@ namespace _Assets.Scripts.Services.Wallets
 {
     public class Wallet
     {
-        public int Money { get; set; }
+        public WalletData walletData;
         public event Action<int> OnMoneyChanged;
 
         public void Add(int amount)
@@ -16,8 +16,8 @@ namespace _Assets.Scripts.Services.Wallets
                 return;
             }
 
-            Money += amount;
-            OnMoneyChanged?.Invoke(Money);
+            walletData.Money += amount;
+            OnMoneyChanged?.Invoke(walletData.Money);
         }
 
         public bool Spend(int amount)
@@ -28,15 +28,26 @@ namespace _Assets.Scripts.Services.Wallets
                 return false;
             }
 
-            if (amount > Money)
+            if (amount > walletData.Money)
             {
                 Debug.LogError($"Not enough money to spend {amount} money");
                 return false;
             }
             
-            Money -= amount;
-            OnMoneyChanged?.Invoke(Money);
+            walletData.Money -= amount;
+            OnMoneyChanged?.Invoke(walletData.Money);
             return true;
+        }
+        
+        [Serializable]
+        public struct WalletData
+        {
+            public int Money;
+
+            public WalletData(int money)
+            {
+                Money = money;
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 using _Assets.Scripts.Services;
 using _Assets.Scripts.Services.Factories;
+using _Assets.Scripts.Services.Levels;
 using _Assets.Scripts.Services.Skins;
 using _Assets.Scripts.Services.Spawners;
 using _Assets.Scripts.Services.StateMachine;
@@ -18,6 +19,8 @@ namespace _Assets.Scripts.CompositionRoot
         
         protected override void Configure(IContainerBuilder builder)
         {
+            builder.Register<GameLevelsService>(Lifetime.Singleton);
+            
             builder.Register<Wallet>(Lifetime.Singleton);
             builder.Register<PlayerUpgradeService>(Lifetime.Singleton);
 

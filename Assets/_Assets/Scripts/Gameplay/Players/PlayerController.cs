@@ -6,18 +6,19 @@ namespace _Assets.Scripts.Gameplay.Players
     public class PlayerController : MonoBehaviour
     {
         private CharacterMovement _characterMovement;
-        private Transform _target;
+        private Transform _endPoint;
         private bool _isBlocking;
         public bool IsBlocking => _isBlocking;
 
-        private void Start()
+        private void Awake()
         {
             _characterMovement = GetComponent<CharacterMovement>();
         }
 
-        public void SetTarget(Transform target)
+        public void SetEndPoint(Transform endPoint)
         {
-            _target = target;
+            _endPoint = endPoint;
+            _characterMovement.SetDestination(_endPoint.position);
         }
 
         public void Attack()

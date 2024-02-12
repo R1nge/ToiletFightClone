@@ -1,3 +1,4 @@
+using _Assets.Scripts.Gameplay;
 using _Assets.Scripts.Services.Factories;
 using _Assets.Scripts.Services.Spawners;
 using _Assets.Scripts.Services.StateMachine;
@@ -13,9 +14,12 @@ namespace _Assets.Scripts.CompositionRoot
     {
         [SerializeField] private PlayerSpawner playerSpawner;
         [SerializeField] private EnemySpawner enemySpawner;
+        [SerializeField] private EndOfTheLevel endOfTheLevel;
 
         protected override void Configure(IContainerBuilder builder)
         {
+            builder.RegisterComponent(endOfTheLevel);
+            
             builder.Register<PlayerFactory>(Lifetime.Singleton);
             builder.Register<EnemyFactory>(Lifetime.Singleton);
             

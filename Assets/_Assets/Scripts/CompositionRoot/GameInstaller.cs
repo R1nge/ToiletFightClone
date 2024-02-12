@@ -18,18 +18,18 @@ namespace _Assets.Scripts.CompositionRoot
 
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.RegisterComponent(endOfTheLevel);
-            
             builder.Register<PlayerFactory>(Lifetime.Singleton);
             builder.Register<EnemyFactory>(Lifetime.Singleton);
-            
+
             builder.RegisterComponent(playerSpawner);
             builder.RegisterComponent(enemySpawner);
-            
+
             builder.Register<UIStatesFactory>(Lifetime.Singleton);
             builder.Register<UIStateMachine>(Lifetime.Singleton);
             builder.Register<UIFactory>(Lifetime.Singleton);
             
+            builder.RegisterComponent(endOfTheLevel);
+
             builder.Register<GameStatesFactory>(Lifetime.Singleton).As<IStateFactory>();
             builder.Register<GameStateMachine>(Lifetime.Singleton);
         }

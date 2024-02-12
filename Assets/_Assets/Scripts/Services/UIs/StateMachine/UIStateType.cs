@@ -4,6 +4,8 @@
     {
         None = 0,
         Main = 1,
-        Game = 2
+        Game = 2,
+        Win = 3,
+        Lose = 4
     }
 }

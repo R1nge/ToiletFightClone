@@ -7,7 +7,11 @@ namespace _Assets.Scripts.Configs
     {
         [SerializeField] private GameObject mainUI;
         [SerializeField] private GameObject gameUI;
+        [SerializeField] private GameObject winUI;
+        [SerializeField] private GameObject loseUI;
         public GameObject MainUI => mainUI;
         public GameObject GameUI => gameUI;
+        public GameObject WinUI => winUI;
+        public GameObject LoseUI => loseUI;
     }
 }

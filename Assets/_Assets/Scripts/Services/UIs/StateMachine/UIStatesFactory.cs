@@ -20,5 +20,15 @@ namespace _Assets.Scripts.Services.UIs.StateMachine
         {
             return new UIGameState(_uiFactory);
         }
+
+        public IUIState CreateWinState(UIStateMachine uiStateMachine)
+        {
+            return new UIWinState(_uiFactory);
+        }
+
+        public IUIState CreateLoseState(UIStateMachine uiStateMachine)
+        {
+            return new UILoseState(_uiFactory);
+        }
     }
 }

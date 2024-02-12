@@ -2,10 +2,11 @@
 Init (Select language, Save/load data)
 
 
-The player runs forward, to the finish point
+
+
+TODO:
 If there're enemies in range - stop and focus on closest
 Can block every attack
-
 
 Enemies are spawned in stages, when stage is cleared another will spawn
 Attack with an interval
@@ -19,6 +20,9 @@ agents
 )
 On death (restart/main menu)
 
+WIP:
+Win if at the end of the level
+
 Done:
 Wallet
 Main (
@@ -30,3 +34,4 @@ Movement (Nav mesh)
 In each level a bunch of enemies are spawned
 Enemies have an attack range
 Enemies spawns and run towards the player
+The player runs forward, to the finish point

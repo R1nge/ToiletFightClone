@@ -26,3 +26,6 @@ upgrades,
 shop,
 agents
 )
+
+Done:
+Wallet

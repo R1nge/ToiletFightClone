@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Levels Config
   m_EditorClassIdentifier: 
   levels:
-  - Assets/_Assets/Scenes/Boot.unity
+  - Assets/_Assets/Scenes/Levels/Level1.unity

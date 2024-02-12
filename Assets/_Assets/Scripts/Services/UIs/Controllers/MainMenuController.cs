@@ -9,17 +9,26 @@ namespace _Assets.Scripts.Services.UIs.Controllers
     {
         [SerializeField] private MainMenuView view;
         [Inject] private Wallet _wallet;
+        [Inject] private GameSceneService _gameSceneService;
 
         private void Start()
         {
             _wallet.OnMoneyChanged += UpdateWalletUI;
             UpdateWalletUI(_wallet.walletData.money);
+
+            view.OnPlayEvent += Play;
         }
+
+        private void Play() => _gameSceneService.LoadLastGameLevel();
 
         private void UpdateWalletUI(int money) => view.UpdateWallet(money);
 
         public bool Spend(int amount) => _wallet.Spend(amount);
 
-        private void OnDestroy() => _wallet.OnMoneyChanged -= UpdateWalletUI;
+        private void OnDestroy()
+        {
+            _wallet.OnMoneyChanged -= UpdateWalletUI;
+            view.OnPlayEvent -= Play;
+        }
     }
 }

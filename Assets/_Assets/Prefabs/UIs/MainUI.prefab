@@ -1978,6 +1978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walletText: {fileID: 4433509549643926547}
+  playButton: {fileID: 3080952522289657604}
   settingsButton: {fileID: 5242378188395045938}
   shopButton: {fileID: 3815934726490770497}
   agentsButton: {fileID: 1360896066920055012}

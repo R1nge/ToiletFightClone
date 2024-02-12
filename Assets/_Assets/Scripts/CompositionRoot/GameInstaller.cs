@@ -20,6 +20,7 @@ namespace _Assets.Scripts.CompositionRoot
         protected override void Configure(IContainerBuilder builder)
         {
             builder.Register<GameLevelsService>(Lifetime.Singleton);
+            builder.Register<GameSceneService>(Lifetime.Singleton);
             
             builder.Register<Wallet>(Lifetime.Singleton);
             builder.Register<PlayerUpgradeService>(Lifetime.Singleton);

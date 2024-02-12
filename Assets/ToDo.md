@@ -1,8 +1,4 @@
-﻿Game
-Init (Select language, Save/load data)
-
-
-
+﻿
 
 TODO:
 If there're enemies in range - stop and focus on closest
@@ -11,6 +7,8 @@ Can block every attack
 Enemies are spawned in stages, when stage is cleared another will spawn
 Attack with an interval
 
+On death (restart/main menu)
+
 UI
 Loading screen
 Main (
@@ -18,10 +16,13 @@ upgrades,
 shop,
 agents
 )
-On death (restart/main menu)
+
+Game
+Init (Select language, Save/load data)
 
 WIP:
 Win if at the end of the level
+Win UI
 
 Done:
 Wallet

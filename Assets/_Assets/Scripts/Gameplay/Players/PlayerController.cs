@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using _Assets.Scripts.Gameplay.Enemies;
 using _Assets.Scripts.Services;
+using Cinemachine;
 using UnityEngine;
 using VContainer;
 
@@ -11,6 +12,7 @@ namespace _Assets.Scripts.Gameplay.Players
     [RequireComponent(typeof(CharacterMovement))]
     public class PlayerController : MonoBehaviour, IDamageable
     {
+        [SerializeField] private CinemachineVirtualCamera cinemachineVirtualCamera;
         [SerializeField] private SphereCollider detectRangeCollider;
         private readonly List<EnemyController> _enemies = new();
         private int _health;
@@ -42,6 +44,7 @@ namespace _Assets.Scripts.Gameplay.Players
         {
             if (_enemies.Count > 0)
             {
+                SetCameraLookTarget(_enemies[0].transform);
                 _characterMovement.SetDestination(_enemies[0].transform.position);
 
                 if (_playerInput.IsAttacking && !_playerInput.IsBlocking)
@@ -59,7 +62,13 @@ namespace _Assets.Scripts.Gameplay.Players
             else
             {
                 _characterMovement.SetDestination(_endPoint.position);
+                SetCameraLookTarget(transform);
             }
+        }
+
+        private void SetCameraLookTarget(Transform target)
+        {
+            cinemachineVirtualCamera.LookAt = target;
         }
 
         private IEnumerator Cooldown_C()

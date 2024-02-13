@@ -2,6 +2,7 @@
 using _Assets.Scripts.Gameplay.Players;
 using _Assets.Scripts.Services.Spawners;
 using _Assets.Scripts.Services.UIs.StateMachine;
+using Cinemachine;
 
 namespace _Assets.Scripts.Services.StateMachine.States
 {

@@ -16,15 +16,9 @@ namespace _Assets.Scripts.Gameplay.Players
             _playerInput.OnBlockStateChanged += OnBlockStateChanged;
         }
 
-        private void OnAttackStateChanged(bool attack)
-        {
-            animator.SetBool(Attacking, attack);
-        }
+        private void OnAttackStateChanged(bool attack) => animator.SetBool(Attacking, attack);
 
-        private void OnBlockStateChanged(bool block)
-        {
-            animator.SetBool(Blocking, block);
-        }
+        private void OnBlockStateChanged(bool block) => animator.SetBool(Blocking, block);
 
         private void OnDestroy()
         {

@@ -21,13 +21,13 @@ namespace _Assets.Scripts.Services.UIs.Views
             blockButton.OnButtonUp += StopBlocking;
         }
 
-        private void StartBlocking() => OnStartBlocking?.Invoke();
-
-        private void StopBlocking() => OnStopBlocking?.Invoke();
+        private void StartAttacking() => OnStartAttacking?.Invoke();
 
         private void StopAttacking() => OnStopAttacking?.Invoke();
 
-        private void StartAttacking() => OnStartAttacking?.Invoke();
+        private void StartBlocking() => OnStartBlocking?.Invoke();
+
+        private void StopBlocking() => OnStopBlocking?.Invoke();
 
         private void OnDestroy()
         {

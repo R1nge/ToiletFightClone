@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using VContainer;
 
 namespace _Assets.Scripts.Gameplay.Players
@@ -15,10 +16,32 @@ namespace _Assets.Scripts.Gameplay.Players
             _characterMovement = GetComponent<CharacterMovement>();
         }
 
+        private void Start()
+        {
+            _playerInput.OnAttackStateChanged += AttackStateChanged;
+            _playerInput.OnBlockStateChanged += BlockStateChanged;
+        }
+
+        private void BlockStateChanged(bool block)
+        {
+            Debug.Log($"Block state changed {block}");
+        }
+
+        private void AttackStateChanged(bool attack)
+        {
+            Debug.Log($"Attack state changed {attack}");
+        }
+
         public void SetEndPoint(Transform endPoint)
         {
             _endPoint = endPoint;
             _characterMovement.SetDestination(_endPoint.position);
+        }
+
+        private void OnDestroy()
+        {
+            _playerInput.OnAttackStateChanged -= AttackStateChanged;
+            _playerInput.OnBlockStateChanged -= BlockStateChanged;
         }
 
         //TODO: attack animation

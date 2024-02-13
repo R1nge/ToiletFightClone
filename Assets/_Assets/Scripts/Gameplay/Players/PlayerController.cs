@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using _Assets.Scripts.Gameplay.Enemies;
 using _Assets.Scripts.Services;
+using _Assets.Scripts.Services.UIs.StateMachine;
 using Cinemachine;
 using UnityEngine;
 using VContainer;
@@ -20,6 +21,7 @@ namespace _Assets.Scripts.Gameplay.Players
         private Transform _endPoint;
         [Inject] private PlayerInput _playerInput;
         [Inject] private PlayerUpgradeService _playerUpgradeService;
+        [Inject] private UIStateMachine _uiStateMachine;
 
         private bool _canAttack = true;
 
@@ -101,6 +103,12 @@ namespace _Assets.Scripts.Gameplay.Players
 
         public void TakeDamage(int damage)
         {
+            if (_health == 0)
+            {
+                Debug.Log("Player is dead", this);
+                return;
+            }
+            
             if (_playerInput.IsBlocking && !_playerInput.IsAttacking)
             {
                 Debug.Log("Can't take damage while blocking", this);
@@ -119,6 +127,7 @@ namespace _Assets.Scripts.Gameplay.Players
             if (_health == 0)
             {
                 OnDeath?.Invoke();
+                _uiStateMachine.SwitchState(UIStateType.Lose);
             }
         }
     }

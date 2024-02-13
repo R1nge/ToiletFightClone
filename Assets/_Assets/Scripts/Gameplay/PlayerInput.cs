@@ -35,5 +35,11 @@ namespace _Assets.Scripts.Gameplay
 
         public event Action<bool> OnBlockStateChanged;
         public event Action<bool> OnAttackStateChanged;
+
+        public void Reset()
+        {
+            IsAttacking = false;
+            IsBlocking = false;
+        }
     }
 }

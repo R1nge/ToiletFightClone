@@ -13,14 +13,16 @@ namespace _Assets.Scripts.Services.StateMachine.States
         private readonly PlayerSpawner _playerSpawner;
         private readonly EnemySpawner _enemySpawner;
         private readonly EndOfTheLevel _endOfTheLevel;
+        private readonly PlayerInput _playerInput;
 
-        public GameState(GameStateMachine gameStateMachine, UIStateMachine uiStateMachine, PlayerSpawner playerSpawner, EnemySpawner enemySpawner, EndOfTheLevel endOfTheLevel)
+        public GameState(GameStateMachine gameStateMachine, UIStateMachine uiStateMachine, PlayerSpawner playerSpawner, EnemySpawner enemySpawner, EndOfTheLevel endOfTheLevel, PlayerInput playerInput)
         {
             _gameStateMachine = gameStateMachine;
             _uiStateMachine = uiStateMachine;
             _playerSpawner = playerSpawner;
             _enemySpawner = enemySpawner;
             _endOfTheLevel = endOfTheLevel;
+            _playerInput = playerInput;
         }
         
         public void Enter()
@@ -34,6 +36,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
 
         public void Exit()
         {
+            _playerInput.Reset();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using VContainer;
 
 namespace _Assets.Scripts.Gameplay.Players
 {
@@ -7,8 +8,7 @@ namespace _Assets.Scripts.Gameplay.Players
     {
         private CharacterMovement _characterMovement;
         private Transform _endPoint;
-        private bool _isBlocking;
-        public bool IsBlocking => _isBlocking;
+        [Inject] private PlayerInput _playerInput;
 
         private void Awake()
         {
@@ -21,19 +21,7 @@ namespace _Assets.Scripts.Gameplay.Players
             _characterMovement.SetDestination(_endPoint.position);
         }
 
-        public void Attack()
-        {
-            
-        }
-
-        public void StartBlocking()
-        {
-            _isBlocking = true;
-        }
-
-        public void StopBlocking()
-        {
-            _isBlocking = false;
-        }
+        //TODO: attack animation
+        //TODO: block animation
     }
 }

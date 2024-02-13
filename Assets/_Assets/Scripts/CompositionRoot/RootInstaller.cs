@@ -1,4 +1,5 @@
 using _Assets.Scripts.Configs;
+using _Assets.Scripts.Gameplay;
 using _Assets.Scripts.Services;
 using _Assets.Scripts.Services.Levels;
 using _Assets.Scripts.Services.Skins;
@@ -25,6 +26,8 @@ namespace _Assets.Scripts.CompositionRoot
             builder.Register<PlayerUpgradeService>(Lifetime.Singleton);
 
             builder.Register<PlayerSkinService>(Lifetime.Singleton);
+            
+            builder.Register<PlayerInput>(Lifetime.Singleton);
 
             if (SceneManager.GetActiveScene().name != "Boot")
             {

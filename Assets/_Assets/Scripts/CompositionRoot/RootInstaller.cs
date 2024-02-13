@@ -3,7 +3,6 @@ using _Assets.Scripts.Gameplay;
 using _Assets.Scripts.Services;
 using _Assets.Scripts.Services.Levels;
 using _Assets.Scripts.Services.Skins;
-using _Assets.Scripts.Services.Wallets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VContainer;

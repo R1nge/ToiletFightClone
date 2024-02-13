@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98cdfc2112ed4317a38fa5fb3605343b, type: 3}
   m_Name: Skins Config
   m_EditorClassIdentifier: 
+  gameplay: {fileID: 598967975187971964, guid: 20abc7f5e3a897c408106802ceba8c17, type: 3}
   prefabs:
-  - {fileID: 598967975187971964, guid: 20abc7f5e3a897c408106802ceba8c17, type: 3}
+  - {fileID: 6425138829045619668, guid: 4d91184e20ff32d438f090cee463bfc2, type: 3}

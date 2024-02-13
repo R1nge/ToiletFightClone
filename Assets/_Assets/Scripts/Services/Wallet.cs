@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace _Assets.Scripts.Services.Wallets
+namespace _Assets.Scripts.Services
 {
     public class Wallet
     {

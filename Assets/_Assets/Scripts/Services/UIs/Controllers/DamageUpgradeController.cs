@@ -1,5 +1,4 @@
 ﻿using _Assets.Scripts.Services.UIs.Views;
-using _Assets.Scripts.Services.Wallets;
 using UnityEngine;
 using VContainer;
 

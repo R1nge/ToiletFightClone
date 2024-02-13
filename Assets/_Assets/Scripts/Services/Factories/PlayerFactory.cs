@@ -15,6 +15,8 @@ namespace _Assets.Scripts.Services.Factories
             _objectResolver = objectResolver;
             _playerSkinService = playerSkinService;
         }
+
+        public GameObject CreateGameplay() => _objectResolver.Instantiate(_playerSkinService.GetGameplay());
         
         public GameObject Create() => _objectResolver.Instantiate(_playerSkinService.GetSkin());
     }

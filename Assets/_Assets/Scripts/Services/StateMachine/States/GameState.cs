@@ -25,7 +25,7 @@ namespace _Assets.Scripts.Services.StateMachine.States
         public void Enter()
         {
             _uiStateMachine.SwitchState(UIStateType.Game);
-            var player = _playerSpawner.Spawn();
+            var player = _playerSpawner.SpawnGameplay();
             player.GetComponent<PlayerController>().SetEndPoint(_endOfTheLevel.EndPoint);
             _enemySpawner.SpawnNextWave(player.transform);
         }

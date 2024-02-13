@@ -10,9 +10,6 @@ Game
 Init (Select language, Save/load data)
 
 WIP:
-
-Separate player from skin
-
 If there're enemies in range - stop and focus on closest
 Can block every attack
 
@@ -37,3 +34,4 @@ The player runs forward, to the finish point
 Win if at the end of the level
 Win UI
 Health bar
+Separate player from skin

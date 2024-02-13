@@ -24,6 +24,8 @@ namespace _Assets.Scripts.Services.Skins
             _currentSkinIndex = index;
         }
 
+        public GameObject GetGameplay() => _configProvider.SkinsConfig.Gameplay;
+
         public GameObject GetSkin()
         {
             if (IndexOutOfRange(_currentSkinIndex))

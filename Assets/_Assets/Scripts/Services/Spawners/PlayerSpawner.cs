@@ -8,12 +8,22 @@ namespace _Assets.Scripts.Services.Spawners
     {
         [SerializeField] private Transform spawnPoint;
         [Inject] private PlayerFactory _playerFactory;
-
+        
         public GameObject Spawn()
         {
-            var player = _playerFactory.Create();
+            var skin = _playerFactory.Create();
+            skin.transform.position = spawnPoint.position;
+            skin.transform.rotation = spawnPoint.rotation;
+            return skin;
+        }
+
+        public GameObject SpawnGameplay()
+        {
+            var player = _playerFactory.CreateGameplay();
             player.transform.position = spawnPoint.position;
             player.transform.rotation = spawnPoint.rotation;
+            var skin = _playerFactory.Create();
+            skin.transform.parent = player.transform;
             return player;
         }
     }

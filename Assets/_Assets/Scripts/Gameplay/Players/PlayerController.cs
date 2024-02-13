@@ -43,8 +43,5 @@ namespace _Assets.Scripts.Gameplay.Players
             _playerInput.OnAttackStateChanged -= AttackStateChanged;
             _playerInput.OnBlockStateChanged -= BlockStateChanged;
         }
-
-        //TODO: attack animation
-        //TODO: block animation
     }
 }

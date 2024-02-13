@@ -10,10 +10,11 @@ Game
 Init (Select language, Save/load data)
 
 WIP:
-If there're enemies in range - stop and focus on closest
+Camera
+Look at the target
 
 Enemies are spawned in stages, when stage is cleared another will spawn
-Attack with an interval
+
 
 On death (restart/main menu)
 
@@ -35,3 +36,7 @@ Win UI
 Health bar
 Separate player from skin
 Can block every attack
+If there're enemies in range - stop and focus on closest
+
+Enemy:
+Attack with an interval

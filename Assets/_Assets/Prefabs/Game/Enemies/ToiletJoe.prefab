@@ -821,6 +821,7 @@ MonoBehaviour:
     health: 30
     detectRange: 100
     attackRange: 2
+    damage: 1
 --- !u!114 &8373477715251828218
 MonoBehaviour:
   m_ObjectHideFlags: 0

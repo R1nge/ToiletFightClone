@@ -1,4 +1,5 @@
 ﻿using System;
+using _Assets.Scripts.Gameplay.Players;
 using UnityEngine;
 
 namespace _Assets.Scripts.Gameplay.Enemies
@@ -7,7 +8,7 @@ namespace _Assets.Scripts.Gameplay.Enemies
     public class EnemyController : MonoBehaviour, IDamageable
     {
         [SerializeField] private EnemyData data;
-        private Transform _player;
+        private PlayerController _player;
         private EnemyAttackController _enemyAttackController;
         private CharacterMovement _characterMovement;
         private bool _dead;
@@ -26,7 +27,7 @@ namespace _Assets.Scripts.Gameplay.Enemies
             OnHealthChanged?.Invoke(data.health, data.maxHealth);
         }
 
-        public void SetPlayerReference(Transform player)
+        public void SetPlayerReference(PlayerController player)
         {
             _player = player;
         }
@@ -34,25 +35,24 @@ namespace _Assets.Scripts.Gameplay.Enemies
         private void Update()
         {
             if (_dead) return;
-            
-            if (PlayerInDetectRange())
+            if (PlayerInAttackRange())
             {
-                _characterMovement.SetDestination(_player.position);
+                _enemyAttackController.Attack(_player, data.damage);
             }
-            else if (PlayerInAttackRange())
+            else if (PlayerInDetectRange())
             {
-                _enemyAttackController.Attack();
+                _characterMovement.SetDestination(_player.transform.position);
             }
         }
 
         private bool PlayerInDetectRange()
         {
-            return Vector3.Distance(transform.position, _player.position) <= data.detectRange;
+            return Vector3.Distance(transform.position, _player.transform.position) <= data.detectRange;
         }
 
         private bool PlayerInAttackRange()
         {
-            return Vector3.Distance(transform.position, _player.position) <= data.attackRange;
+            return Vector3.Distance(transform.position, _player.transform.position) <= data.attackRange;
         }
 
         [Serializable]
@@ -62,6 +62,7 @@ namespace _Assets.Scripts.Gameplay.Enemies
             public int health;
             public float detectRange;
             public float attackRange;
+            public int damage;
         }
 
         public void TakeDamage(int damage)

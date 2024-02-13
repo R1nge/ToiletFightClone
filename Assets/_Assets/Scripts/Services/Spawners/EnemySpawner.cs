@@ -1,4 +1,5 @@
 ﻿using System;
+using _Assets.Scripts.Gameplay.Players;
 using _Assets.Scripts.Services.Factories;
 using UnityEngine;
 using VContainer;
@@ -11,7 +12,7 @@ namespace _Assets.Scripts.Services.Spawners
         private int _waveIndex = -1;
         [Inject] private EnemyFactory _enemyFactory;
 
-        public void SpawnNextWave(Transform player)
+        public void SpawnNextWave(PlayerController player)
         {
             Debug.Log("Spawn next wave");
             _waveIndex++;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using _Assets.Scripts.Gameplay.Players;
 using UnityEngine;
 
 namespace _Assets.Scripts.Gameplay.Enemies
@@ -16,11 +17,12 @@ namespace _Assets.Scripts.Gameplay.Enemies
             _cooldown = new WaitForSeconds(attackDelay);
         }
 
-        public void Attack()
+        public void Attack(PlayerController playerController, int damage)
         {
             if (_canAttack)
             {
                 OnAttack?.Invoke();
+                playerController.TakeDamage(damage);
                 StartCoroutine(Cooldown_C());
             }
         }

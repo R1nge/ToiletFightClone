@@ -1,5 +1,6 @@
 ﻿using _Assets.Scripts.Configs;
 using _Assets.Scripts.Gameplay.Enemies;
+using _Assets.Scripts.Gameplay.Players;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -17,7 +18,7 @@ namespace _Assets.Scripts.Services.Factories
             _configProvider = configProvider;
         }
 
-        public GameObject Create(Transform player, EnemyType enemyType)
+        public GameObject Create(PlayerController player, EnemyType enemyType)
         {
             var enemy = _objectResolver.Instantiate(_configProvider.EnemiesConfig.GetDataByEnemyType(enemyType).enemyPrefab);
             var enemyController = enemy.GetComponent<EnemyController>();

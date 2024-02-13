@@ -10,14 +10,19 @@ namespace _Assets.Scripts.Gameplay.Enemies
         private Transform _player;
         private EnemyAttackController _enemyAttackController;
         private CharacterMovement _characterMovement;
-        public event Action<int> OnHealthChanged;
+        public event Action<int, int> OnHealthChanged;
         public event Action OnDeath;
 
         private void Awake()
         {
-            data.health = data.maxHealth;
             _enemyAttackController = GetComponent<EnemyAttackController>();
             _characterMovement = GetComponent<CharacterMovement>();
+        }
+
+        private void Start()
+        {
+            data.health = data.maxHealth;
+            OnHealthChanged?.Invoke(data.health, data.maxHealth);
         }
 
         public void SetPlayerReference(Transform player)
@@ -65,7 +70,7 @@ namespace _Assets.Scripts.Gameplay.Enemies
             }
 
             data.health = Mathf.Clamp(data.health - damage, 0, data.maxHealth);
-            OnHealthChanged?.Invoke(data.health);
+            OnHealthChanged?.Invoke(data.health, data.maxHealth);
 
             if (data.health == 0)
             {

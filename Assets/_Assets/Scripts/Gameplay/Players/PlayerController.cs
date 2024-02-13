@@ -13,17 +13,15 @@ namespace _Assets.Scripts.Gameplay.Players
         private Transform _endPoint;
         [Inject] private PlayerInput _playerInput;
         [Inject] private PlayerUpgradeService _playerUpgradeService;
-        public event Action<int> OnHealthChanged;
+        public event Action<int, int> OnHealthChanged;
         public event Action OnDeath;
 
-        private void Awake()
-        {
-            _characterMovement = GetComponent<CharacterMovement>();
-        }
+        private void Awake() => _characterMovement = GetComponent<CharacterMovement>();
 
         private void Start()
         {
             _health = _playerUpgradeService.PlayerData.health;
+            OnHealthChanged?.Invoke(_health, _playerUpgradeService.PlayerData.health);
             _playerInput.OnAttackStateChanged += AttackStateChanged;
             _playerInput.OnBlockStateChanged += BlockStateChanged;
         }
@@ -59,7 +57,7 @@ namespace _Assets.Scripts.Gameplay.Players
             }
 
             _health = Mathf.Clamp(_health - damage, 0, _playerUpgradeService.PlayerData.health);
-            OnHealthChanged?.Invoke(_health);
+            OnHealthChanged?.Invoke(_health, _playerUpgradeService.PlayerData.health);
 
             if (_health == 0)
             {

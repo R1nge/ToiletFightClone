@@ -1,21 +1,18 @@
 ﻿
 TODO:
-
 UI
 Loading screen
 Main (
 shop,
 agents
 )
-
-Game
-Init (Select language, Save/load data)
-
+Init state (Select language, Save/load data)
 Link damage to an animation event
+Enemies are spawned in stages, when stage is cleared another will spawn
 
 WIP:
-Enemies are spawned in stages, when stage is cleared another will spawn
-On death (restart/main menu)
+Walk animation
+Fix camera
 
 Done:
 Wallet
@@ -36,8 +33,8 @@ Health bar
 Separate player from skin
 Can block every attack
 If there're enemies in range - stop and focus on closest
-
 Enemy:
 Attack with an interval
 Camera
 Look at the target
+On death (restart/main menu)

@@ -1,4 +1,6 @@
 ﻿
+TODO:
+
 UI
 Loading screen
 Main (
@@ -9,13 +11,10 @@ agents
 Game
 Init (Select language, Save/load data)
 
+Link damage to an animation event
+
 WIP:
-Camera
-Look at the target
-
 Enemies are spawned in stages, when stage is cleared another will spawn
-
-
 On death (restart/main menu)
 
 Done:
@@ -40,3 +39,5 @@ If there're enemies in range - stop and focus on closest
 
 Enemy:
 Attack with an interval
+Camera
+Look at the target

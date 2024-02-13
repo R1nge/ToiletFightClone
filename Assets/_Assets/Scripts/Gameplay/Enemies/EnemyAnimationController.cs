@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace _Assets.Scripts.Gameplay.Enemies
@@ -12,12 +13,24 @@ namespace _Assets.Scripts.Gameplay.Enemies
         private void Awake()
         {
             _enemyAttackController = GetComponent<EnemyAttackController>();
-            _enemyAttackController.OnAttack += AttackAnimation;
+            _enemyAttackController.OnStartAttack += StartAttackAnimation;
         }
 
-        private void AttackAnimation()
+        private void StartAttackAnimation()
         {
-            animator.SetBool(IsAttacking, true);
+            animator.SetTrigger(IsAttacking);
+            StartCoroutine(Wait_C());
+        }
+
+        private IEnumerator Wait_C()
+        {
+            yield return new WaitForSeconds(0.1f);
+            animator.ResetTrigger(IsAttacking);
+        }
+
+        private void OnDestroy()
+        {
+            _enemyAttackController.OnStartAttack -= StartAttackAnimation;
         }
     }
 }

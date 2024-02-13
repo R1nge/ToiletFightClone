@@ -15,12 +15,13 @@ Walk animation
 Fix camera
 
 Done:
-Wallet
-Main (
+Main UI
+(
 start game,
 wallet,
 upgrades
 )
+
 Levels are separate scenes
 Movement (Nav mesh)
 In each level a bunch of enemies are spawned
@@ -30,7 +31,7 @@ The player runs forward, to the finish point
 Win if at the end of the level
 Win UI
 Health bar
-Separate player from skin
+Separated player from skin
 Can block every attack
 If there're enemies in range - stop and focus on closest
 Enemy:

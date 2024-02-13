@@ -50,6 +50,12 @@ namespace _Assets.Scripts.Gameplay.Players
 
         public void TakeDamage(int damage)
         {
+            if (_playerInput.IsBlocking && !_playerInput.IsAttacking)
+            {
+                Debug.Log("Can't take damage while blocking", this);
+                return;
+            }
+
             if (damage <= 0)
             {
                 Debug.LogError("Damage must be greater than 0", this);

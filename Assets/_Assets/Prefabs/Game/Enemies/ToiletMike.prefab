@@ -765,6 +765,7 @@ GameObject:
   - component: {fileID: 4215425852403875844}
   - component: {fileID: 3081141787082921168}
   - component: {fileID: -7318014531600222509}
+  - component: {fileID: -7894053819129917528}
   m_Layer: 0
   m_Name: ToiletMike
   m_TagString: Untagged
@@ -803,8 +804,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    maxHealth: 5
-    health: 5
+    maxHealth: 30
+    health: 30
     detectRange: 100
     attackRange: 2
 --- !u!114 &5918206239332401713
@@ -859,6 +860,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBarView: {fileID: -634028796413671539, guid: d399b68aa5cb4c04f9b45c871cc7aff4, type: 3}
+--- !u!65 &-7894053819129917528
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5482897983685202023}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5677911604206998304
 GameObject:
   m_ObjectHideFlags: 0

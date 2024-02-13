@@ -21,7 +21,7 @@ namespace _Assets.Scripts.Services.UIs.Controllers
 
         private void TryBuyHealth()
         {
-            if (_playerUpgradeService.TryUpgradeDamage(_wallet.walletData.money, 0))
+            if (_playerUpgradeService.TryUpgradeHealth(_wallet.walletData.money, 0))
             {
                 upgradeView.UpdateAmount(_playerUpgradeService.PlayerData.health);
                 upgradeView.UpdateCost(10);

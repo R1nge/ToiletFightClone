@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using _Assets.Scripts.Gameplay.Enemies;
 using _Assets.Scripts.Services;
 using UnityEngine;
 using VContainer;
@@ -8,11 +11,19 @@ namespace _Assets.Scripts.Gameplay.Players
     [RequireComponent(typeof(CharacterMovement))]
     public class PlayerController : MonoBehaviour, IDamageable
     {
+        [SerializeField] private SphereCollider detectRangeCollider;
+        private readonly List<EnemyController> _enemies = new();
         private int _health;
         private CharacterMovement _characterMovement;
         private Transform _endPoint;
         [Inject] private PlayerInput _playerInput;
         [Inject] private PlayerUpgradeService _playerUpgradeService;
+
+        private bool _canAttack = true;
+
+        private YieldInstruction _attackCooldown;
+
+        //Should have made a state machine for it
         public event Action<int, int> OnHealthChanged;
         public event Action OnDeath;
 
@@ -20,32 +31,63 @@ namespace _Assets.Scripts.Gameplay.Players
 
         private void Start()
         {
+            _attackCooldown = new WaitForSeconds(_playerUpgradeService.PlayerData.attackCooldown);
+            detectRangeCollider.radius = _playerUpgradeService.PlayerData.detectRange;
             _health = _playerUpgradeService.PlayerData.health;
             OnHealthChanged?.Invoke(_health, _playerUpgradeService.PlayerData.health);
-            _playerInput.OnAttackStateChanged += AttackStateChanged;
-            _playerInput.OnBlockStateChanged += BlockStateChanged;
         }
 
-        private void BlockStateChanged(bool block)
+        //TODO: damage controller
+        private void Update()
         {
-            Debug.Log($"Block state changed {block}");
+            if (_enemies.Count > 0)
+            {
+                _characterMovement.SetDestination(_enemies[0].transform.position);
+
+                if (_playerInput.IsAttacking && !_playerInput.IsBlocking)
+                {
+                    if (Vector3.Distance(transform.position, _enemies[0].transform.position) < _playerUpgradeService.PlayerData.attackRange)
+                    {
+                        if (_canAttack)
+                        {
+                            StartCoroutine(Cooldown_C());
+                            _enemies[0].TakeDamage(_playerUpgradeService.PlayerData.damage);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                _characterMovement.SetDestination(_endPoint.position);
+            }
         }
 
-        private void AttackStateChanged(bool attack)
+        private IEnumerator Cooldown_C()
         {
-            Debug.Log($"Attack state changed {attack}");
+            _canAttack = false;
+            yield return _attackCooldown;
+            _canAttack = true;
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out EnemyController enemy))
+            {
+                _enemies.Add(enemy);
+                enemy.OnDeath += RemoveEnemy;
+            }
+        }
+
+        private void RemoveEnemy(EnemyController enemy)
+        {
+            enemy.OnDeath -= RemoveEnemy;
+            _enemies.Remove(enemy);
         }
 
         public void SetEndPoint(Transform endPoint)
         {
             _endPoint = endPoint;
             _characterMovement.SetDestination(_endPoint.position);
-        }
-
-        private void OnDestroy()
-        {
-            _playerInput.OnAttackStateChanged -= AttackStateChanged;
-            _playerInput.OnBlockStateChanged -= BlockStateChanged;
         }
 
         public void TakeDamage(int damage)

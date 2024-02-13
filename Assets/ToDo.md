@@ -11,7 +11,6 @@ Init (Select language, Save/load data)
 
 WIP:
 If there're enemies in range - stop and focus on closest
-Can block every attack
 
 Enemies are spawned in stages, when stage is cleared another will spawn
 Attack with an interval
@@ -35,3 +34,4 @@ Win if at the end of the level
 Win UI
 Health bar
 Separate player from skin
+Can block every attack

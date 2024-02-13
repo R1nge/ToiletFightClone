@@ -10,8 +10,9 @@ namespace _Assets.Scripts.Gameplay.Enemies
         private Transform _player;
         private EnemyAttackController _enemyAttackController;
         private CharacterMovement _characterMovement;
+        private bool _dead;
         public event Action<int, int> OnHealthChanged;
-        public event Action OnDeath;
+        public event Action<EnemyController> OnDeath;
 
         private void Awake()
         {
@@ -32,6 +33,8 @@ namespace _Assets.Scripts.Gameplay.Enemies
 
         private void Update()
         {
+            if (_dead) return;
+            
             if (PlayerInDetectRange())
             {
                 _characterMovement.SetDestination(_player.position);
@@ -74,7 +77,8 @@ namespace _Assets.Scripts.Gameplay.Enemies
 
             if (data.health == 0)
             {
-                OnDeath?.Invoke();
+                OnDeath?.Invoke(this);
+                _dead = true;
             }
         }
     }

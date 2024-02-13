@@ -4,7 +4,7 @@ namespace _Assets.Scripts.Services
 {
     public class PlayerUpgradeService
     {
-        private PlayerData _playerData = new(10, 10);
+        private PlayerData _playerData = new(10, 10, 10, 5, .5f);
         public PlayerData PlayerData => _playerData;
 
         public bool TryUpgradeDamage(int money, int cost)

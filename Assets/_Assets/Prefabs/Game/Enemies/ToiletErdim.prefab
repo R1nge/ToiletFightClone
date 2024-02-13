@@ -81,6 +81,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
+    maxHealth: 5
+    health: 5
     detectRange: 100
     attackRange: 2
 --- !u!114 &8316143503337552634

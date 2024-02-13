@@ -14,5 +14,11 @@ namespace _Assets.Scripts.Services
             //TODO: show/hide loading curtain
             SceneManager.LoadSceneAsync(_gameLevelsService.GetLastLevelName(), LoadSceneMode.Single);
         }
+
+        public void LoadMain()
+        {
+            //TODO: show/hide loading curtain
+            SceneManager.LoadSceneAsync("Main", LoadSceneMode.Single);
+        }
     }
 }

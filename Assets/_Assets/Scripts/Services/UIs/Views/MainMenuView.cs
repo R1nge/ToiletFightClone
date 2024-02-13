@@ -12,10 +12,10 @@ namespace _Assets.Scripts.Services.UIs.Views
         [SerializeField] private Button settingsButton;
         [SerializeField] private Button shopButton, agentsButton;
 
-        public event Action OnPlayEvent;
-        public event Action OnSettingEvent;
-        public event Action OnShopEvent;
-        public event Action OnAgentsEvent;
+        public event Action OnPlay;
+        public event Action OnSettings;
+        public event Action OnShop;
+        public event Action OnAgents;
 
         private void Start()
         {
@@ -27,25 +27,25 @@ namespace _Assets.Scripts.Services.UIs.Views
 
         private void Play()
         {
-            OnPlayEvent?.Invoke();
+            OnPlay?.Invoke();
             Debug.LogWarning("Play");
         }
 
         private void OpenSettingsMenu()
         {
-            OnSettingEvent?.Invoke();
+            OnSettings?.Invoke();
             Debug.LogWarning("Open settings menu");
         }
 
         private void OpenShop()
         {
-            OnShopEvent?.Invoke();
+            OnShop?.Invoke();
             Debug.LogWarning("Open shop");
         }
 
         private void OpenAgents()
         {
-            OnAgentsEvent?.Invoke();
+            OnAgents?.Invoke();
             Debug.LogWarning("Open agents");
         }
 

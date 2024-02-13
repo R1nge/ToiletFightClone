@@ -16,7 +16,7 @@ namespace _Assets.Scripts.Services.UIs.Controllers
             _wallet.OnMoneyChanged += UpdateWalletUI;
             UpdateWalletUI(_wallet.walletData.money);
 
-            view.OnPlayEvent += Play;
+            view.OnPlay += Play;
         }
 
         private void Play() => _gameSceneService.LoadLastGameLevel();
@@ -28,7 +28,7 @@ namespace _Assets.Scripts.Services.UIs.Controllers
         private void OnDestroy()
         {
             _wallet.OnMoneyChanged -= UpdateWalletUI;
-            view.OnPlayEvent -= Play;
+            view.OnPlay -= Play;
         }
     }
 }

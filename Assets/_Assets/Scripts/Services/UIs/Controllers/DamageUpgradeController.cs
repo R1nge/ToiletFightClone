@@ -13,7 +13,7 @@ namespace _Assets.Scripts.Services.UIs.Controllers
 
         private void Start()
         {
-            upgradeView.OnBuyEvent += TryBuyDamage;
+            upgradeView.OnBuy += TryBuyDamage;
             
             
             upgradeView.UpdateAmount(1);

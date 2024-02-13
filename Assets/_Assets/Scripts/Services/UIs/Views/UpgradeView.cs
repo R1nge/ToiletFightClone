@@ -11,11 +11,11 @@ namespace _Assets.Scripts.Services.UIs.Views
         [SerializeField] private TextMeshProUGUI levelText;
         [SerializeField] private TextMeshProUGUI amountText;
         [SerializeField] private TextMeshProUGUI costText;
-        public event Action OnBuyEvent;
+        public event Action OnBuy;
 
         private void Awake() => buyButton.onClick.AddListener(Buy);
 
-        private void Buy() => OnBuyEvent?.Invoke();
+        private void Buy() => OnBuy?.Invoke();
 
         public void UpdateLevel(int level) => levelText.text = $"{level} LVL";
 

@@ -2,7 +2,6 @@
 UI
 Loading screen
 Main (
-upgrades,
 shop,
 agents
 )
@@ -12,7 +11,7 @@ Init (Select language, Save/load data)
 
 WIP:
 
-
+Separate player from skin
 
 If there're enemies in range - stop and focus on closest
 Can block every attack
@@ -26,7 +25,8 @@ Done:
 Wallet
 Main (
 start game,
-wallet
+wallet,
+upgrades
 )
 Levels are separate scenes
 Movement (Nav mesh)

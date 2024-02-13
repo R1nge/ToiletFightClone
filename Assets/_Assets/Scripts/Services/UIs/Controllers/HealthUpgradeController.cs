@@ -5,7 +5,7 @@ using VContainer;
 
 namespace _Assets.Scripts.Services.UIs.Controllers
 {
-    public class DamageUpgradeController : MonoBehaviour
+    public class HealthUpgradeController : MonoBehaviour
     {
         [SerializeField] private UpgradeView upgradeView;
         [Inject] private Wallet _wallet;
@@ -13,19 +13,18 @@ namespace _Assets.Scripts.Services.UIs.Controllers
 
         private void Start()
         {
-            upgradeView.OnBuy += TryBuyDamage;
+            upgradeView.OnBuy += TryBuyHealth;
             
-            
-            upgradeView.UpdateAmount(_playerUpgradeService.PlayerData.damage);
+            upgradeView.UpdateAmount(_playerUpgradeService.PlayerData.health);
             upgradeView.UpdateCost(10);
             upgradeView.UpdateLevel(1);
         }
 
-        private void TryBuyDamage()
+        private void TryBuyHealth()
         {
             if (_playerUpgradeService.TryUpgradeDamage(_wallet.walletData.money, 0))
             {
-                upgradeView.UpdateAmount(_playerUpgradeService.PlayerData.damage);
+                upgradeView.UpdateAmount(_playerUpgradeService.PlayerData.health);
                 upgradeView.UpdateCost(10);
                 upgradeView.UpdateLevel(10);
             }

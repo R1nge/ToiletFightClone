@@ -2202,7 +2202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 907459516840610919}
   - component: {fileID: 6090748014137543565}
-  - component: {fileID: 4917253466172595501}
+  - component: {fileID: 1376215025319375865}
   m_Layer: 5
   m_Name: HealthUpgrade
   m_TagString: Untagged
@@ -2246,7 +2246,7 @@ MonoBehaviour:
   levelText: {fileID: 2046278794610867042}
   amountText: {fileID: 1411528622974409996}
   costText: {fileID: 6391989461306453440}
---- !u!114 &4917253466172595501
+--- !u!114 &1376215025319375865
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2255,7 +2255,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7208764423371027999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f22c848bdbbf4f53a1fadeed0172cdd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 780105e8bbcf4010b3c3a45caa5688a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeView: {fileID: 6090748014137543565}

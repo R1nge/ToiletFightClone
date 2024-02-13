@@ -7,6 +7,7 @@ namespace _Assets.Scripts.Gameplay.Enemies
     public class EnemyAttackController : MonoBehaviour
     {
         [SerializeField] private float attackDelay;
+        public event Action OnAttack;
         private bool _canAttack = true;
         private YieldInstruction _cooldown;
 
@@ -19,6 +20,7 @@ namespace _Assets.Scripts.Gameplay.Enemies
         {
             if (_canAttack)
             {
+                OnAttack?.Invoke();
                 StartCoroutine(Cooldown_C());
             }
         }
